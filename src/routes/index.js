@@ -1,0 +1,7 @@
+//URL de la pagina principal
+const express = require('express');
+const router = express.Router();
+
+module.exports = router;
+
+
