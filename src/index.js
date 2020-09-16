@@ -40,6 +40,16 @@ app.use(flash());
 //aqui termina Middlewares
 
 //Variables globales(los datos que sean accesibles)
+app.use((req, res, next) => {
+
+    //lo errores se muestran pero eso es para front
+    res.locals.success_msg = req.flash('success_msg');
+    res.locals.error_msg = req.flash('error_msg');
+    res.locals.error = req.flash('error');
+    next();
+
+});
+
 
 //Routes 
 app.use(require('./routes/index'));

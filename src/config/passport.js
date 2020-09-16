@@ -11,7 +11,7 @@ passport.use(new LocalStrategy({
         return done(null, false, {message: 'No se encontro ningun Usuario'})    
     }
     else {
-        const match = await customer.matchPassword(password);
+        const match = await user.matchPassword(password);
         if(match){
             return done(null, user);
         } 
@@ -21,7 +21,6 @@ passport.use(new LocalStrategy({
     }
 
 }));
-
 
 
 passport.serializeUser((user, done) => {
