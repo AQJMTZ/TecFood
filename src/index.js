@@ -3,10 +3,13 @@ const path = require('path');
 const methodOverride = require('method-override');
 const app = express();
 const sesion = requiere('express-session');
+const passport = require('passport');
 
 //Inicializa
 //Inicia la base de datos
 require('./database');
+require('./config/passport');
+
 //Aqui termina inicializa
 
 
@@ -19,6 +22,7 @@ app.set('port', process.env.PORT || 3000);
 //Solo requiero datos
 app.use(express.urlencoded({extended: false}));
 
+
 //Sirve para que los formularios agregen mas metodos
 app.use(methodOverride('_method'));
 
@@ -28,6 +32,11 @@ app.use(sesion({
     resave: true,
     saveUninitialized: true
 }));
+
+
+app.use(passport.initialize());
+app.use(passport.sesion());
+app.use(flash());
 //aqui termina Middlewares
 
 //Variables globales(los datos que sean accesibles)
