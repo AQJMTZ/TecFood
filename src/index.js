@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const methodOverride = require('method-override');
 const app = express();
-const sesion = requiere('express-session');
+const sesion = require('express-session');
 const passport = require('passport');
 
 //Inicializa
